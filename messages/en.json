@@ -6,5 +6,13 @@
     "system": "system",
     "light": "light",
     "dark": "dark"
+  },
+  "Navbar": {
+    "link_1": "Home",
+    "link_2": "About",
+    "link_3": "Experience",
+    "link_4": "Skills",
+    "link_5": "Projects",
+    "link_6": "Contact me"
   }
 }
