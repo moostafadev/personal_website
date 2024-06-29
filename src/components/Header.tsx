@@ -85,7 +85,7 @@ const Header = () => {
               <ChangeLang />
               <div
                 className={`bg-white ${
-                  resolvedTheme === "light" ? "bg-white" : "bg-black"
+                  resolvedTheme === "light" ? "bg-white" : "!bg-black"
                 } rounded-md px-[1px] md:hidden cursor-pointer hover:opacity-90 duration-300`}
                 onClick={isOpenHandler}
               >
@@ -126,7 +126,7 @@ const Header = () => {
             </li>
           ))}
         </ul>
-        <div className="p-4 flex flex-col gap-4 absolute bottom-0">
+        <div className="p-4 py-8 flex flex-col gap-4 absolute bottom-0">
           <h3 className="text-lg font-bold relative">
             {locale === "en" ? "Social media:" : "التواصل الاجتماعي:"}
             <span
