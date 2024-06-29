@@ -1,0 +1,10 @@
+{
+  "Index": {
+    "title": "Hello world!"
+  },
+  "IndexHeader": {
+    "system": "system",
+    "light": "light",
+    "dark": "dark"
+  }
+}
