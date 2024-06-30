@@ -55,7 +55,7 @@ const Header = () => {
 
   return (
     <header
-      className="h-16 flex items-center"
+      className="h-16 flex items-center relative z-50"
       style={{ backgroundColor: resolvedTheme === "light" ? "black" : "white" }}
     >
       <div className="container">
@@ -126,7 +126,7 @@ const Header = () => {
             </li>
           ))}
         </ul>
-        <div className="p-4 py-8 flex flex-col gap-4 absolute bottom-0">
+        <div className="p-4 py-8 flex flex-col gap-4 absolute bottom-0 z-50">
           <h3 className="text-lg font-bold relative">
             {locale === "en" ? "Social media:" : "التواصل الاجتماعي:"}
             <span

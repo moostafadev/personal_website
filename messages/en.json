@@ -14,5 +14,10 @@
     "link_4": "Skills",
     "link_5": "Projects",
     "link_6": "Contact me"
+  },
+  "HeroSection": {
+    "name": "🖐🏻 Mostafa Ahmed",
+    "jobName": "Fullstack Web Developer, Freelancer.",
+    "scroll": "Scroll down"
   }
 }

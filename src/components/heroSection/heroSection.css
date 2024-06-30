@@ -1,0 +1,109 @@
+.box-shadow {
+  box-shadow: 2px 1px 60px 0px rgba(255, 255, 255, 0.6) inset;
+  -webkit-box-shadow: 2px 1px 60px 0px rgba(255, 255, 255, 0.6) inset;
+  -moz-box-shadow: 2px 1px 60px 0px rgba(255, 255, 255, 0.6) inset;
+}
+
+.box-shadow:hover {
+  box-shadow: 2px 1px 60px 0px rgba(255, 255, 255, 0.9) inset;
+  -webkit-box-shadow: 2px 1px 60px 0px rgba(255, 255, 255, 0.9) inset;
+  -moz-box-shadow: 2px 1px 60px 0px rgba(255, 255, 255, 0.9) inset;
+}
+
+.writing-mode {
+  writing-mode: vertical-lr;
+}
+
+.scroll-animation {
+  animation: scrollAnimation 1.7s ease infinite;
+}
+
+.animation {
+  height: 100px;
+  background: #000;
+  bottom: -40px;
+  left: -200px;
+  border-radius: 10%;
+}
+.dark .animation {
+  background: white;
+}
+.animation.one {
+  transform: rotate(1deg);
+  animation: rotation-1 infinite linear 10s;
+}
+.animation.two {
+  opacity: 0.8;
+  bottom: -30px;
+  transform: rotate(-1deg);
+  animation: rotation-2 infinite linear 10s;
+}
+.animation.three {
+  opacity: 0.5;
+  bottom: -20px;
+  transform: rotate(1deg);
+  animation: rotation-3 infinite linear 10s;
+}
+.animation.four {
+  opacity: 0.3;
+  bottom: -10px;
+  transform: rotate(-1deg);
+  animation: rotation-4 infinite linear 10s;
+}
+
+@keyframes scrollAnimation {
+  0% {
+    bottom: 0px;
+  }
+  50% {
+    bottom: -20px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+
+@keyframes rotation-1 {
+  0% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(-1deg);
+  }
+}
+@keyframes rotation-2 {
+  0% {
+    transform: rotate(1deg);
+  }
+  50% {
+    transform: rotate(-1deg);
+  }
+  100% {
+    transform: rotate(1deg);
+  }
+}
+@keyframes rotation-3 {
+  0% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(-1deg);
+  }
+}
+@keyframes rotation-4 {
+  0% {
+    transform: rotate(1deg);
+  }
+  50% {
+    transform: rotate(-1deg);
+  }
+  100% {
+    transform: rotate(1deg);
+  }
+}
