@@ -14,7 +14,7 @@ const HeroSection = () => {
   const { resolvedTheme } = useTheme();
   return (
     <section className="h-[calc(100vh-64px)] py-4 md:py-10 lg:py-16 xl:py-20 relative overflow-hidden">
-      <div className="container relative">
+      <div className="container relative h-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-2 lg:py-10 ">
           <div
             className={`flex flex-col ${
@@ -32,7 +32,7 @@ const HeroSection = () => {
           <div>
             <div
               className={`w-[250px] h-[250px] md:w-[350px] md:h-[350px] ${
-                resolvedTheme === "light" ? "bg-black" : "bg-zinc-950"
+                resolvedTheme === "light" ? "bg-black" : "bg-zinc-900"
               } rounded-full flex justify-center items-center mx-auto overflow-hidden relative box-shadow duration-300 group`}
             >
               <Image
@@ -46,12 +46,12 @@ const HeroSection = () => {
           </div>
         </div>
         <div
-          className={`absolute bottom-0 mb-[-60px] md:mb-0 z-10 ${
+          className={`absolute z-10 ${
             locale === "en" ? "left-4" : "right-4"
           } scroll-animation`}
         >
           <Link
-            href={"#"}
+            href={"#about"}
             className="writing-mode flex justify-center items-center"
           >
             {locale === "en" ? (
@@ -68,10 +68,6 @@ const HeroSection = () => {
           </Link>
         </div>
       </div>
-      <div className="absolute animation one w-[180%]"></div>
-      <div className="absolute animation two w-[180%]"></div>
-      <div className="absolute animation three w-[180%]"></div>
-      <div className="absolute animation four w-[180%]"></div>
     </section>
   );
 };

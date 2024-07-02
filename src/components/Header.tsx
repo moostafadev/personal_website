@@ -55,8 +55,9 @@ const Header = () => {
 
   return (
     <header
-      className="h-16 flex items-center relative z-50"
-      style={{ backgroundColor: resolvedTheme === "light" ? "black" : "white" }}
+      className={`h-16 flex items-center relative z-50 ${
+        resolvedTheme === "light" ? "bg-zinc-950" : "bg-white"
+      }`}
     >
       <div className="container">
         <div className="flex justify-between items-center">
@@ -64,7 +65,7 @@ const Header = () => {
           <nav className="flex gap-10 items-center">
             <ul
               className={`hidden md:flex gap-4 lg:gap-6 items-center ${
-                resolvedTheme === "light" ? "text-white" : "text-black"
+                resolvedTheme === "light" ? "text-white" : "text-zinc-950"
               }`}
             >
               {links.map((link) => (
@@ -72,8 +73,8 @@ const Header = () => {
                   key={link.title}
                   className={`font-semibold lg:text-lg lg:font-bold ${
                     resolvedTheme === "light"
-                      ? "hover:text-gray-300"
-                      : "hover:text-gray-600"
+                      ? "hover:text-zinc-300"
+                      : "hover:text-zinc-600"
                   } duration-300`}
                 >
                   <Link href={link.to}>{link.title}</Link>
@@ -85,7 +86,7 @@ const Header = () => {
               <ChangeLang />
               <div
                 className={`bg-white ${
-                  resolvedTheme === "light" ? "bg-white" : "!bg-black"
+                  resolvedTheme === "light" ? "bg-white" : "!bg-zinc-950"
                 } rounded-md px-[1px] md:hidden cursor-pointer hover:opacity-90 duration-300`}
                 onClick={isOpenHandler}
               >
@@ -101,13 +102,13 @@ const Header = () => {
           isOpen ? "h-[calc(100vh-64px)]" : "h-0"
         } duration-300 ${
           resolvedTheme === "light"
-            ? "bg-black text-white"
-            : "bg-white text-black"
+            ? "bg-zinc-950 text-white"
+            : "bg-white text-zinc-bg-zinc-950"
         } overflow-hidden`}
       >
         <ul
           className={`flex md:hidden gap-4 lg:gap-6 items-center flex-col py-16 ${
-            resolvedTheme === "light" ? "text-white" : "text-black"
+            resolvedTheme === "light" ? "text-white" : "text-zinc-bg-zinc-950"
           }`}
         >
           {links.map((link) => (
@@ -115,8 +116,8 @@ const Header = () => {
               key={link.title}
               className={`text-lg font-bold w-full ${
                 resolvedTheme === "light"
-                  ? "hover:text-gray-300"
-                  : "hover:text-gray-600"
+                  ? "hover:text-zinc-300"
+                  : "hover:text-zinc-600"
               } duration-300`}
               onClick={isOpenHandler}
             >
@@ -133,7 +134,7 @@ const Header = () => {
               className={`absolute bottom-[-8px] ${
                 locale === "en" ? "left-0" : "right-0"
               } h-1 ${
-                resolvedTheme === "light" ? "bg-white" : "bg-black"
+                resolvedTheme === "light" ? "bg-white" : "bg-zinc-950"
               } duration-1000 ${isOpen ? "w-12" : "w-0"}`}
             ></span>
           </h3>

@@ -27,7 +27,11 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale === "en" ? "ltr" : "rtl"}>
+    <html
+      lang={locale}
+      dir={locale === "en" ? "ltr" : "rtl"}
+      style={{ scrollBehavior: "smooth" }}
+    >
       <body className={cairo.className}>
         <ThemeProvider
           attribute="class"
