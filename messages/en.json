@@ -16,8 +16,9 @@
     "link_6": "Contact me"
   },
   "HeroSection": {
-    "name": "🖐🏻 Mostafa Ahmed",
+    "name": "Mostafa Ahmed",
     "jobName": "Fullstack Web Developer, Freelancer.",
+    "quote": "Your website... the mark of your creativity on the internet.",
     "scroll": "Scroll down"
   }
 }

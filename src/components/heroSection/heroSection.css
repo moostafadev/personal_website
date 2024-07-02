@@ -21,8 +21,8 @@
 .animation {
   height: 100px;
   background: #000;
-  bottom: -40px;
-  left: -200px;
+  bottom: -24px;
+  left: -40%;
   border-radius: 10%;
 }
 .dark .animation {
@@ -30,25 +30,27 @@
 }
 .animation.one {
   transform: rotate(1deg);
-  animation: rotation-1 infinite linear 10s;
+  animation: rotation-2 infinite ease 10s;
 }
 .animation.two {
   opacity: 0.8;
-  bottom: -30px;
-  transform: rotate(-1deg);
-  animation: rotation-2 infinite linear 10s;
+  bottom: -20px;
+  transform: rotate(1deg);
+  animation: rotation-2 infinite ease 8s;
 }
 .animation.three {
   opacity: 0.5;
-  bottom: -20px;
+  bottom: -16px;
   transform: rotate(1deg);
-  animation: rotation-3 infinite linear 10s;
+  animation: rotation-1 infinite ease 10s;
+  animation-delay: 2s;
 }
 .animation.four {
   opacity: 0.3;
-  bottom: -10px;
+  bottom: -14px;
   transform: rotate(-1deg);
-  animation: rotation-4 infinite linear 10s;
+  animation: rotation-1 infinite ease 10s;
+  animation-delay: 2s;
 }
 
 @keyframes scrollAnimation {
@@ -65,45 +67,23 @@
 
 @keyframes rotation-1 {
   0% {
-    transform: rotate(-1deg);
+    transform: rotate(-0.7deg);
   }
   50% {
-    transform: rotate(1deg);
+    transform: rotate(0.7deg);
   }
   100% {
-    transform: rotate(-1deg);
+    transform: rotate(-0.7deg);
   }
 }
 @keyframes rotation-2 {
   0% {
-    transform: rotate(1deg);
+    transform: rotate(0.7deg);
   }
   50% {
-    transform: rotate(-1deg);
+    transform: rotate(-0.7deg);
   }
   100% {
-    transform: rotate(1deg);
-  }
-}
-@keyframes rotation-3 {
-  0% {
-    transform: rotate(-1deg);
-  }
-  50% {
-    transform: rotate(1deg);
-  }
-  100% {
-    transform: rotate(-1deg);
-  }
-}
-@keyframes rotation-4 {
-  0% {
-    transform: rotate(1deg);
-  }
-  50% {
-    transform: rotate(-1deg);
-  }
-  100% {
-    transform: rotate(1deg);
+    transform: rotate(0.7deg);
   }
 }
