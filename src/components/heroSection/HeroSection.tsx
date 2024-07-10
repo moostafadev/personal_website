@@ -2,7 +2,6 @@
 
 import { ChevronDown } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -11,18 +10,19 @@ import "@/components/heroSection/heroSection.css";
 const HeroSection = () => {
   const t = useTranslations("HeroSection");
   const locale = useLocale();
-  const { resolvedTheme } = useTheme();
   return (
-    <section className="h-[calc(100vh-64px)] py-4 md:py-10 lg:py-16 xl:py-20 relative overflow-hidden">
-      <div className="container relative h-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-2 lg:py-10 ">
+    <section className="h-[calc(100vh-64px)] py-4 mt-16 md:py-10 lg:py-16 xl:py-20 relative overflow-hidden">
+      <div className="container relative h-full flex md:block justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 py-2 lg:py-10">
           <div
-            className={`flex flex-col ${
-              locale === "ar" ? "gap-8" : "gap-6"
-            } py-2 md:py-20`}
+            className={`flex flex-col justify-center ${
+              locale === "ar" ? "gap-9 md:text-right" : "gap-6 md:text-left"
+            } py-2 md:py-20 text-center`}
           >
-            <div className="flex gap-2 flex-col">
-              <h1 className="text-2xl md:text-4xl font-extrabold">
+            <div
+              className={`flex ${locale === "ar" ? "gap-7" : "gap-2"} flex-col`}
+            >
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold">
                 {t("name")}.
               </h1>
               <p className="text-xl md:text-3xl font-bold">{t("jobName")}</p>
@@ -31,9 +31,7 @@ const HeroSection = () => {
           </div>
           <div>
             <div
-              className={`w-[250px] h-[250px] md:w-[350px] md:h-[350px] ${
-                resolvedTheme === "light" ? "bg-black" : "bg-zinc-900"
-              } rounded-full flex justify-center items-center mx-auto overflow-hidden relative box-shadow duration-300 group`}
+              className={`w-[250px] h-[250px] md:w-[350px] md:h-[350px] bg-black dark:bg-zinc-900 rounded-full flex justify-center items-center mx-auto overflow-hidden relative box-shadow duration-300 group`}
             >
               <Image
                 src={"/person/person_rm_bg.png"}

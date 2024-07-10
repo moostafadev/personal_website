@@ -13,41 +13,52 @@ const Header = () => {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const t = useTranslations("Navbar");
   const locale = useLocale();
 
   const links: { title: string; to: string }[] = [
     {
       title: t("link_1"),
-      to: "#",
+      to: "/#",
     },
     {
       title: t("link_2"),
-      to: "#about",
+      to: "/#about",
     },
     {
       title: t("link_3"),
-      to: "#experience",
+      to: "/#experience",
     },
     {
       title: t("link_4"),
-      to: "#skills",
+      to: "/#skills",
     },
     {
       title: t("link_5"),
-      to: "#projects",
+      to: "/#projects",
     },
     {
       title: t("link_6"),
-      to: "#contact",
+      to: "/#contact",
     },
   ];
   useEffect(() => {
     setMounted(true);
+
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercentage = (scrollTop / docHeight) * 100;
+      setScrollProgress(Math.ceil(scrollPercentage));
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isOpenHandler = () =>
-    setIsOpen((prev) => (prev === false ? true : false));
+  const isOpenHandler = () => setIsOpen((prev) => !prev);
 
   if (!mounted) {
     return <header className="h-16"></header>;
@@ -55,10 +66,18 @@ const Header = () => {
 
   return (
     <header
-      className={`h-16 flex items-center relative z-50 ${
-        resolvedTheme === "light" ? "bg-zinc-950" : "bg-white"
+      className={`h-16 flex items-center fixed top-0 w-full shadow-lg z-50 ${
+        resolvedTheme === "light"
+          ? "bg-[hsl(240deg,10%,4%,.95)] backdrop-blur-sm"
+          : "bg-[hsl(0deg,0%,100%,.9)] backdrop-blur-sm"
       }`}
     >
+      <div
+        className={`h-1 fixed top-16 ${
+          locale === "en" ? "left-0" : "right-0"
+        } ${resolvedTheme === "light" ? "bg-zinc-950" : "bg-white"}`}
+        style={{ width: `${scrollProgress}%` }}
+      ></div>
       <div className="container">
         <div className="flex justify-between items-center">
           <Logo />
@@ -87,10 +106,23 @@ const Header = () => {
               <div
                 className={`bg-white ${
                   resolvedTheme === "light" ? "bg-white" : "!bg-zinc-950"
-                } rounded-md px-[1px] md:hidden cursor-pointer hover:opacity-90 duration-300`}
+                } rounded-md px-[1px] md:hidden cursor-pointer hover:opacity-90 duration-300 relative w-[32px] h-[32px]`}
                 onClick={isOpenHandler}
               >
-                {isOpen ? <X size={32} /> : <Menu size={32} />}
+                <span
+                  className={`absolute w-[75%] h-1 ${
+                    resolvedTheme === "dark" ? "bg-white" : "bg-zinc-950"
+                  } top-2 left-[50%] translate-x-[-50%] rounded-md ${
+                    isOpen ? "rotate-45 top-[14px] w-[28px] bg-red-500" : ""
+                  } duration-300`}
+                ></span>
+                <span
+                  className={`absolute w-[75%] h-1 ${
+                    resolvedTheme === "dark" ? "bg-white" : "bg-zinc-950"
+                  } bottom-2 right-[50%] translate-x-[50%] rounded-md ${
+                    isOpen ? "-rotate-45 top-[14px] w-[28px] bg-red-500" : ""
+                  } duration-300`}
+                ></span>
               </div>
             </div>
           </nav>
@@ -98,7 +130,7 @@ const Header = () => {
       </div>
       {/* To Phones */}
       <div
-        className={`absolute top-16 left-0 w-full ${
+        className={`fixed top-16 left-0 w-full ${
           isOpen ? "h-[calc(100vh-64px)]" : "h-0"
         } duration-300 ${
           resolvedTheme === "light"
@@ -108,7 +140,7 @@ const Header = () => {
       >
         <ul
           className={`flex md:hidden gap-4 lg:gap-6 items-center flex-col py-16 ${
-            resolvedTheme === "light" ? "text-white" : "text-zinc-bg-zinc-950"
+            resolvedTheme === "light" ? "text-white" : "text-zinc-950"
           }`}
         >
           {links.map((link) => (
@@ -128,14 +160,18 @@ const Header = () => {
           ))}
         </ul>
         <div className="p-4 py-8 flex flex-col gap-4 absolute bottom-0 z-50">
-          <h3 className="text-lg font-bold relative">
+          <h3
+            className={`text-lg font-bold relative ${
+              resolvedTheme === "light" ? "text-white" : "text-zinc-950"
+            }`}
+          >
             {locale === "en" ? "Social media:" : "التواصل الاجتماعي:"}
             <span
               className={`absolute bottom-[-8px] ${
                 locale === "en" ? "left-0" : "right-0"
               } h-1 ${
                 resolvedTheme === "light" ? "bg-white" : "bg-zinc-950"
-              } duration-1000 ${isOpen ? "w-12" : "w-0"}`}
+              } duration-2000 ${isOpen ? "w-12" : "w-0"}`}
             ></span>
           </h3>
           <ul className="flex gap-1">
