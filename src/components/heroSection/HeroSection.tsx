@@ -4,25 +4,12 @@ import { ChevronDown } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "@/components/heroSection/heroSection.css";
 
 const HeroSection = () => {
   const t = useTranslations("HeroSection");
   const locale = useLocale();
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setScrollProgress(Math.ceil(scrollTop / 6.5));
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  console.log(scrollProgress);
 
   return (
     <section className="h-[calc(100vh-64px)] py-4 mt-16 md:py-10 lg:py-16 xl:py-20 relative overflow-hidden">
@@ -80,10 +67,6 @@ const HeroSection = () => {
           </Link>
         </div>
       </div>
-      <div
-        className={`absolute bottom-0 left-[50%] translate-x-[-50%] h-1 w-0 duration-300 bg-zinc-950 dark:bg-white`}
-        style={{ width: `${scrollProgress}%` }}
-      ></div>
     </section>
   );
 };

@@ -1,22 +1,20 @@
-"use client";
-
-import { useTranslations, useLocale } from "next-intl";
-import Image from "next/image";
 import React from "react";
 import Heading from "./Heading";
-import { Button } from "./ui/button";
+import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
 import Link from "next/link";
+import { Button } from "./ui/button";
 import { NotepadText } from "lucide-react";
 import CVDownload from "./CVDownload";
 
-const AboutSection = () => {
-  const t = useTranslations("AboutSection");
+const ExperienceSection = () => {
+  const t = useTranslations("ExperienceSection");
   const locale = useLocale();
 
   return (
     <section
-      className={`min-h-screen md:h-screen py-10 md:py-16 bg-zinc-50 dark:bg-zinc-900`}
-      id="about"
+      className="min-h-screen md:h-screen py-10 md:py-16"
+      id="experience"
     >
       <div className="container flex h-full content-stretch flex-wrap justify-center">
         <div className="flex flex-col gap-10">
@@ -24,7 +22,9 @@ const AboutSection = () => {
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-8 h-full">
             <div className="flex-1 order-2 md:order-1">
               <Image
-                src={"/sections_images/5155720_2672333.svg"}
+                src={
+                  "/sections_images/product-quality-concept-illustration.png"
+                }
                 alt="about"
                 width={500}
                 height={500}
@@ -35,9 +35,7 @@ const AboutSection = () => {
                 className={`font-semibold text-center text-sm md:text-base leading-normal ${
                   locale === "en" ? "md:text-left" : "md:text-right"
                 }`}
-              >
-                {t("about")}
-              </p>
+              ></p>
               <div className="flex gap-2 md:gap-4 flex-col md:flex-row items-center">
                 <Link href={locale === "en" ? "/en/cv" : "/ar/cv"}>
                   <Button className="font-semibold flex gap-1">
@@ -63,4 +61,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default ExperienceSection;
