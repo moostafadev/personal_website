@@ -6,7 +6,7 @@ import React from "react";
 import Heading from "./Heading";
 import { Button } from "./ui/button";
 import Link from "next/link";
-import { FileDown, NotepadText } from "lucide-react";
+import { NotepadText } from "lucide-react";
 import CVDownload from "./CVDownload";
 
 const AboutSection = () => {
@@ -29,9 +29,9 @@ const AboutSection = () => {
                 height={500}
               />
             </div>
-            <div className="flex-1 flex flex-col gap-4 order-1 md:order-2">
+            <div className="flex-1 flex flex-col gap-6 order-1 md:order-2">
               <p
-                className={`font-semibold text-center text-sm md:text-base ${
+                className={`font-semibold text-center text-sm md:text-base leading-normal ${
                   locale === "en" ? "md:text-left" : "md:text-right"
                 }`}
               >
@@ -43,7 +43,9 @@ const AboutSection = () => {
                     <span>
                       <NotepadText />
                     </span>
-                    <span>View CV</span>
+                    <span>
+                      {locale === "en" ? "Veiw CV" : "مشاهدة السيرة الذاتية"}
+                    </span>
                   </Button>
                 </Link>
                 <CVDownload

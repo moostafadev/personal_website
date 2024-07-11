@@ -33,7 +33,7 @@ const CV = () => {
           </h2>
           <div className="border border-zinc-950 dark:border-zinc-950">
             <Image
-              src={"/cv/Screenshot 2024-07-10 233742.png"}
+              src={"/cv/Screenshot 2024-07-11 212505.png"}
               alt="CV Image"
               width={1000}
               height={1000}
@@ -46,7 +46,7 @@ const CV = () => {
           </h2>
           <div className="border border-zinc-950 dark:border-zinc-950">
             <Image
-              src={"/cv/Screenshot 2024-07-10 233752.png"}
+              src={"/cv/Screenshot 2024-07-11 212518.png"}
               alt="CV Image"
               width={1000}
               height={1000}

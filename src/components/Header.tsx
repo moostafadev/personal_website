@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import { ModeToggle } from "./ChangeTheme";
 import ChangeLang from "./ChangeLang";
-import { Menu, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 
@@ -16,7 +15,6 @@ const Header = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const t = useTranslations("Navbar");
   const locale = useLocale();
-
   const links: { title: string; to: string }[] = [
     {
       title: t("link_1"),
@@ -43,6 +41,7 @@ const Header = () => {
       to: "/#contact",
     },
   ];
+
   useEffect(() => {
     setMounted(true);
 
@@ -59,6 +58,22 @@ const Header = () => {
   }, []);
 
   const isOpenHandler = () => setIsOpen((prev) => !prev);
+
+  const renderNav = links.map((link) => (
+    <li
+      key={link.title}
+      className={`text-lg font-bold w-full ${
+        resolvedTheme === "light"
+          ? "hover:text-zinc-300"
+          : "hover:text-zinc-600"
+      } duration-300`}
+      onClick={isOpenHandler}
+    >
+      <Link href={link.to} className="block w-full text-center p-2">
+        {link.title}
+      </Link>
+    </li>
+  ));
 
   if (!mounted) {
     return <header className="h-16"></header>;
@@ -143,21 +158,7 @@ const Header = () => {
             resolvedTheme === "light" ? "text-white" : "text-zinc-950"
           }`}
         >
-          {links.map((link) => (
-            <li
-              key={link.title}
-              className={`text-lg font-bold w-full ${
-                resolvedTheme === "light"
-                  ? "hover:text-zinc-300"
-                  : "hover:text-zinc-600"
-              } duration-300`}
-              onClick={isOpenHandler}
-            >
-              <Link href={link.to} className="block w-full text-center p-2">
-                {link.title}
-              </Link>
-            </li>
-          ))}
+          {renderNav}
         </ul>
         <div className="p-4 py-8 flex flex-col gap-4 absolute bottom-0 z-50">
           <h3
