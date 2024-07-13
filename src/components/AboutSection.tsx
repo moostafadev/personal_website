@@ -1,5 +1,3 @@
-"use client";
-
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import React from "react";
@@ -39,7 +37,7 @@ const AboutSection = () => {
                 {t("about")}
               </p>
               <div className="flex gap-2 md:gap-4 flex-col md:flex-row items-center">
-                <Link href={locale === "en" ? "/en/cv" : "/ar/cv"}>
+                <Link href={`/${locale}/cv`}>
                   <Button className="font-semibold flex gap-1">
                     <span>
                       <NotepadText />

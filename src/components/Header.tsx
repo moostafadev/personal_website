@@ -1,6 +1,5 @@
 "use client";
 
-import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import { ModeToggle } from "./ChangeTheme";
@@ -10,8 +9,6 @@ import Link from "next/link";
 import useScrollDirection from "@/hooks/useScrollDir";
 
 const Header = () => {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const scrollDirection = useScrollDirection(0);
@@ -49,18 +46,14 @@ const Header = () => {
       setScrollProgress(Math.ceil(scrollPercentage));
     };
 
-    setMounted(true);
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     if (isOpen) {
-      // Disable scroll when isOpen is true
       document.body.style.overflow = "hidden";
     } else {
-      // Enable scroll when isOpen is false
       document.body.style.overflow = "unset";
     }
   }, [isOpen]);
@@ -70,11 +63,7 @@ const Header = () => {
   const renderNav = links.map((link) => (
     <li
       key={link.title}
-      className={`text-lg font-bold w-full ${
-        resolvedTheme === "light"
-          ? "hover:text-zinc-300"
-          : "hover:text-zinc-600"
-      } duration-300`}
+      className={`text-lg font-bold w-full hover:text-zinc-300 dark:hover:text-zinc-600 duration-300`}
       onClick={isOpenHandler}
     >
       <Link href={link.to} className="block w-full text-center p-2">
@@ -82,10 +71,6 @@ const Header = () => {
       </Link>
     </li>
   ));
-
-  if (!mounted) {
-    return <header className="h-16"></header>;
-  }
 
   return (
     <header
@@ -152,9 +137,7 @@ const Header = () => {
         </ul>
         <div className="p-4 py-8 flex flex-col gap-4 absolute bottom-0 z-50">
           <h3
-            className={`text-lg font-bold relative ${
-              resolvedTheme === "light" ? "text-white" : "text-zinc-950"
-            }`}
+            className={`text-lg font-bold relative text-white dark:text-zinc-950`}
           >
             {locale === "en" ? "Social media:" : "التواصل الاجتماعي:"}
             <span

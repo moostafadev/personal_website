@@ -1,5 +1,3 @@
-"use client";
-
 import { ChevronDown } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";

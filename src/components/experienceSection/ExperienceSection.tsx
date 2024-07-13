@@ -4,6 +4,9 @@ import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import "@/components/experienceSection/experienceSection.css";
 import ExpItem from "../ExpItem";
+import Link from "next/link";
+import { Button } from "../ui/button";
+import Experiences from "../Experiences";
 
 const ExperienceSection = () => {
   const t = useTranslations("ExperienceSection");
@@ -28,33 +31,14 @@ const ExperienceSection = () => {
                 height={500}
               />
             </div>
-            <div className="flex flex-1 py-8 flex-col gap-3">
-              <h2 className="text-xl font-bold">{t("exp-1")}</h2>
-              <div
-                className={`${
-                  locale === "en" ? "border-l-4" : "border-r-4"
-                } border-zinc-950 dark:border-white ml-1`}
-              >
-                <div className="py-4 flex flex-col gap-4">
-                  <ExpItem
-                    title={t("project-1 title")}
-                    desc={t("project-1 desc")}
-                    month={t("april")}
-                    locale={locale}
-                    image={{
-                      url: "/projects/raisa-icon.png",
-                      alt: "Raisa image",
-                    }}
-                    lastItem={false}
-                  />
-                  <ExpItem
-                    title={t("project-2 title")}
-                    desc={t("project-2 desc")}
-                    month={t("march")}
-                    locale={locale}
-                    lastItem={true}
-                  />
-                </div>
+            <div className="flex-1 flex gap-6 flex-col">
+              <Experiences locale={locale} title={t("exp-1")} />
+              <div className="text-center">
+                <Link href={`/${locale}/experience`}>
+                  <Button>
+                    {locale === "en" ? "Read more" : "أقراء المزيد"}
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
