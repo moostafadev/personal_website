@@ -2,11 +2,8 @@
 
 import { BreadcrumbDemo } from "@/components/Breadcrumb";
 import CVDownload from "@/components/CVDownload";
-import { Button } from "@/components/ui/button";
-import { FileDown } from "lucide-react";
 import { useLocale } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 const CV = () => {

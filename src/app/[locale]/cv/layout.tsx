@@ -18,7 +18,7 @@ export default async function LocaleLayout({
   return (
     <main>
       <Header />
-      <section className="min-h-[calc(100vh-64px)] mt-16 py-10">
+      <section className="min-h-[calc(100vh-64px)] mb-16 md:mt-16 py-10">
         {children}
       </section>
     </main>
