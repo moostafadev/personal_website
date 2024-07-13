@@ -28,8 +28,8 @@ const Page = () => {
       <div className="py-8 flex flex-col gap-10">
         <Heading title={locale === "en" ? "Certificates" : "شهادات"} />
         <div className="flex flex-col gap-4">
-          <div className="flex justify-between gap-2 items-center">
-            <h2 className="text-xl font-bold">
+          <div className="flex md:justify-between flex-col md:flex-row gap-2 items-center">
+            <h2 className="md:text-xl text-sm font-bold">
               Pro Frontend Engineer ReactJS + TypeScript + Redux | [Udemy]
             </h2>
             <Link
@@ -38,8 +38,11 @@ const Page = () => {
               }
               target="_blank"
             >
-              <Button variant={"link"} className="text-lg font-bold flex gap-1">
-                <Link2 />
+              <Button
+                variant={"link"}
+                className="text-sm md:text-lg font-bold flex gap-1"
+              >
+                <Link2 size={20} />
                 <span>{locale === "en" ? "Certificate" : "الشهادة"}</span>
               </Button>
             </Link>
