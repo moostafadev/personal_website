@@ -20,7 +20,7 @@ const ExpItem = ({ desc, locale, month, title, image, lastItem }: IProp) => {
         className={`absolute ${
           locale === "en" ? "left-[-10px]" : "right-[-10px]"
         } top-1 outline outline-[3px] outline-[#fe735b] border-2 border-white dark:border-zinc-950 ${
-          lastItem ? "background-animation" : ""
+          lastItem ? "background-animation" : "bg-[#fe735b]"
         } dark:bg-[#fe735b] rounded-full w-4 h-4`}
       ></span>
       <div

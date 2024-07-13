@@ -13,10 +13,7 @@ const ExperienceSection = () => {
   const locale = useLocale();
 
   return (
-    <section
-      className="min-h-screen md:h-screen py-10 md:py-16"
-      id="experience"
-    >
+    <section className="min-h-screen py-10 md:py-16" id="experience">
       <div className="container flex justify-center">
         <div className="flex flex-col gap-10 w-full">
           <Heading title={t("heading")} />
@@ -31,9 +28,9 @@ const ExperienceSection = () => {
                 height={500}
               />
             </div>
-            <div className="flex-1 flex gap-6 flex-col">
+            <div className="flex-1 flex gap-2 flex-col">
               <Experiences locale={locale} title={t("exp-1")} />
-              <div className="text-center">
+              <div className="text-center hidden md:block">
                 <Link href={`/${locale}/experience`}>
                   <Button>
                     {locale === "en" ? "Read more" : "أقراء المزيد"}
@@ -41,6 +38,11 @@ const ExperienceSection = () => {
                 </Link>
               </div>
             </div>
+          </div>
+          <div className="text-center md:hidden">
+            <Link href={`/${locale}/experience`}>
+              <Button>{locale === "en" ? "Read more" : "أقراء المزيد"}</Button>
+            </Link>
           </div>
         </div>
       </div>
