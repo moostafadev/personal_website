@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import "@/components/expItem/expItem.css";
 
 interface IProp {
   locale: string;

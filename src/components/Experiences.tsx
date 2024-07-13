@@ -1,5 +1,5 @@
 import React from "react";
-import ExpItem from "./ExpItem";
+import ExpItem from "./expItem/ExpItem";
 import { useTranslations } from "next-intl";
 
 const Experiences = ({ locale, title }: { locale: string; title: string }) => {
@@ -30,6 +30,10 @@ const Experiences = ({ locale, title }: { locale: string; title: string }) => {
             desc={t("project-2 desc")}
             month={t("march")}
             locale={locale}
+            image={{
+              url: "/projects/favicon.ico",
+              alt: "Raisa image",
+            }}
             lastItem={true}
           />
         </div>

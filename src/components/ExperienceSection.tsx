@@ -1,12 +1,10 @@
 import React from "react";
-import Heading from "../Heading";
+import Heading from "./Heading";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
-import "@/components/experienceSection/experienceSection.css";
-import ExpItem from "../ExpItem";
 import Link from "next/link";
-import { Button } from "../ui/button";
-import Experiences from "../Experiences";
+import { Button } from "./ui/button";
+import Experiences from "./Experiences";
 
 const ExperienceSection = () => {
   const t = useTranslations("ExperienceSection");
