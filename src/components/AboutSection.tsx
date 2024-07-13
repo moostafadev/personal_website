@@ -18,7 +18,7 @@ const AboutSection = () => {
       className={`min-h-screen md:h-screen py-10 md:py-16 bg-zinc-50 dark:bg-zinc-900`}
       id="about"
     >
-      <div className="container flex h-full content-stretch flex-wrap justify-center">
+      <div className="container flex h-full content-stretch flex-wrap jus">
         <div className="flex flex-col gap-10">
           <Heading title={t("heading")} />
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-8 h-full">

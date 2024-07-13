@@ -7,44 +7,40 @@ import { ModeToggle } from "./ChangeTheme";
 import ChangeLang from "./ChangeLang";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
+import useScrollDirection from "@/hooks/useScrollDir";
 
 const Header = () => {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const scrollDirection = useScrollDirection(0);
   const t = useTranslations("Navbar");
   const locale = useLocale();
   const links: { title: string; to: string }[] = [
     {
       title: t("link_1"),
-      to: "/#",
-    },
-    {
-      title: t("link_2"),
       to: "/#about",
     },
     {
-      title: t("link_3"),
+      title: t("link_2"),
       to: "/#experience",
     },
     {
-      title: t("link_4"),
+      title: t("link_3"),
       to: "/#skills",
     },
     {
-      title: t("link_5"),
+      title: t("link_4"),
       to: "/#projects",
     },
     {
-      title: t("link_6"),
+      title: t("link_5"),
       to: "/#contact",
     },
   ];
 
   useEffect(() => {
-    setMounted(true);
-
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight =
@@ -53,9 +49,21 @@ const Header = () => {
       setScrollProgress(Math.ceil(scrollPercentage));
     };
 
+    setMounted(true);
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      // Disable scroll when isOpen is true
+      document.body.style.overflow = "hidden";
+    } else {
+      // Enable scroll when isOpen is false
+      document.body.style.overflow = "unset";
+    }
+  }, [isOpen]);
 
   const isOpenHandler = () => setIsOpen((prev) => !prev);
 
@@ -81,16 +89,16 @@ const Header = () => {
 
   return (
     <header
-      className={`h-16 flex items-center fixed top-0 w-full shadow-lg z-50 ${
-        resolvedTheme === "light"
-          ? "bg-[hsl(240deg,10%,4%,.95)] backdrop-blur-sm"
-          : "bg-[hsl(0deg,0%,100%,.9)] backdrop-blur-sm"
+      className={`h-16 flex items-center fixed bottom-0 md:top-0 w-full shadow-lg z-50 bg-[hsl(240deg,10%,4%,.95)] backdrop-blur-sm dark:bg-[hsl(0deg,0%,100%,.95)] duration-300 ${
+        scrollDirection === "down"
+          ? "bottom-[-64px] md:top-[-64px]"
+          : "bottom-0 md:top-0"
       }`}
     >
       <div
-        className={`h-1 fixed top-16 ${
+        className={`h-1 fixed bottom-16 md:top-16 ${
           locale === "en" ? "left-0" : "right-0"
-        } ${resolvedTheme === "light" ? "bg-zinc-950" : "bg-white"}`}
+        } bg-zinc-950 dark:bg-white`}
         style={{ width: `${scrollProgress}%` }}
       ></div>
       <div className="container">
@@ -98,18 +106,12 @@ const Header = () => {
           <Logo />
           <nav className="flex gap-10 items-center">
             <ul
-              className={`hidden md:flex gap-4 lg:gap-6 items-center ${
-                resolvedTheme === "light" ? "text-white" : "text-zinc-950"
-              }`}
+              className={`hidden md:flex gap-4 lg:gap-6 items-center text-white dark:text-zinc-950`}
             >
               {links.map((link) => (
                 <li
                   key={link.title}
-                  className={`font-semibold lg:text-lg lg:font-bold ${
-                    resolvedTheme === "light"
-                      ? "hover:text-zinc-300"
-                      : "hover:text-zinc-600"
-                  } duration-300`}
+                  className={`font-semibold lg:text-lg lg:font-bold hover:text-zinc-300 dark:hover:text-zinc-600 duration-300`}
                 >
                   <Link href={link.to}>{link.title}</Link>
                 </li>
@@ -119,23 +121,17 @@ const Header = () => {
               <ModeToggle />
               <ChangeLang />
               <div
-                className={`bg-white ${
-                  resolvedTheme === "light" ? "bg-white" : "!bg-zinc-950"
-                } rounded-md px-[1px] md:hidden cursor-pointer hover:opacity-90 duration-300 relative w-[32px] h-[32px]`}
+                className={`bg-white dark:bg-zinc-950 rounded-md px-[1px] md:hidden cursor-pointer hover:opacity-90 duration-300 relative w-[32px] h-[32px]`}
                 onClick={isOpenHandler}
               >
                 <span
-                  className={`absolute w-[75%] h-1 ${
-                    resolvedTheme === "dark" ? "bg-white" : "bg-zinc-950"
-                  } top-2 left-[50%] translate-x-[-50%] rounded-md ${
-                    isOpen ? "rotate-45 top-[14px] w-[28px] bg-red-500" : ""
+                  className={`absolute w-[75%] h-1 bg-zinc-950 dark:bg-white top-2 left-[50%] translate-x-[-50%] rounded-md ${
+                    isOpen ? "rotate-45 top-[14px] w-[28px] !bg-red-500" : ""
                   } duration-300`}
                 ></span>
                 <span
-                  className={`absolute w-[75%] h-1 ${
-                    resolvedTheme === "dark" ? "bg-white" : "bg-zinc-950"
-                  } bottom-2 right-[50%] translate-x-[50%] rounded-md ${
-                    isOpen ? "-rotate-45 top-[14px] w-[28px] bg-red-500" : ""
+                  className={`absolute w-[75%] h-1 bg-zinc-950 dark:bg-white bottom-2 right-[50%] translate-x-[50%] rounded-md ${
+                    isOpen ? "-rotate-45 top-[14px] w-[28px] !bg-red-500" : ""
                   } duration-300`}
                 ></span>
               </div>
@@ -145,18 +141,12 @@ const Header = () => {
       </div>
       {/* To Phones */}
       <div
-        className={`fixed top-16 left-0 w-full ${
+        className={`fixed bottom-16 left-0 w-full ${
           isOpen ? "h-[calc(100vh-64px)]" : "h-0"
-        } duration-300 ${
-          resolvedTheme === "light"
-            ? "bg-zinc-950 text-white"
-            : "bg-white text-zinc-bg-zinc-950"
-        } overflow-hidden`}
+        } duration-300 bg-zinc-950 !backdrop-blur-sm dark:bg-white overflow-hidden`}
       >
         <ul
-          className={`flex md:hidden gap-4 lg:gap-6 items-center flex-col py-16 ${
-            resolvedTheme === "light" ? "text-white" : "text-zinc-950"
-          }`}
+          className={`flex md:hidden gap-4 lg:gap-6 items-center flex-col py-16 text-white dark:text-zinc-950`}
         >
           {renderNav}
         </ul>
@@ -170,9 +160,9 @@ const Header = () => {
             <span
               className={`absolute bottom-[-8px] ${
                 locale === "en" ? "left-0" : "right-0"
-              } h-1 ${
-                resolvedTheme === "light" ? "bg-white" : "bg-zinc-950"
-              } duration-2000 ${isOpen ? "w-12" : "w-0"}`}
+              } h-1 bg-white dark:bg-zinc-950 duration-2000 ${
+                isOpen ? "w-12" : "w-0"
+              }`}
             ></span>
           </h3>
           <ul className="flex gap-1">

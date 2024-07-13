@@ -12,7 +12,7 @@ const HeroSection = () => {
   const locale = useLocale();
 
   return (
-    <section className="h-[calc(100vh-64px)] py-4 mt-16 md:py-10 lg:py-16 xl:py-20 relative overflow-hidden">
+    <section className="h-[calc(100vh-64px)] py-4 mb-16 md:mt-16 md:py-10 lg:py-16 xl:py-20 relative overflow-hidden">
       <div className="container relative h-full flex md:block justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 py-2 lg:py-10">
           <div

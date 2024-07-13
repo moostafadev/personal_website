@@ -18,7 +18,7 @@ const Logo = () => {
   }
 
   return (
-    <Link href={"/"}>
+    <Link href={"/#"}>
       <Image
         src={
           resolvedTheme === "light"

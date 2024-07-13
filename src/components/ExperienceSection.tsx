@@ -30,29 +30,12 @@ const ExperienceSection = () => {
                 height={500}
               />
             </div>
-            <div className="flex-1 flex flex-col gap-6 order-1 md:order-2">
-              <p
+            <div className="flex">
+              {/* <p
                 className={`font-semibold text-center text-sm md:text-base leading-normal ${
                   locale === "en" ? "md:text-left" : "md:text-right"
                 }`}
-              ></p>
-              <div className="flex gap-2 md:gap-4 flex-col md:flex-row items-center">
-                <Link href={locale === "en" ? "/en/cv" : "/ar/cv"}>
-                  <Button className="font-semibold flex gap-1">
-                    <span>
-                      <NotepadText />
-                    </span>
-                    <span>
-                      {locale === "en" ? "Veiw CV" : "مشاهدة السيرة الذاتية"}
-                    </span>
-                  </Button>
-                </Link>
-                <CVDownload
-                  text={
-                    locale === "en" ? "Download CV" : "تحميل السيرة الذاتية"
-                  }
-                />
-              </div>
+              ></p> */}
             </div>
           </div>
         </div>
