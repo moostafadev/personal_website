@@ -102,7 +102,7 @@ const Header = () => {
         style={{ width: `${scrollProgress}%` }}
       ></div>
       <div className="container">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center gap-2">
           <Logo />
           <nav className="flex gap-10 items-center">
             <ul

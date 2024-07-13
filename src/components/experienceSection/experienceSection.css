@@ -1,0 +1,25 @@
+.dark .background-animation {
+  animation: ease 3s fullDark infinite;
+}
+.background-animation {
+  animation: ease 3s fullLight infinite;
+}
+
+@keyframes fullLight {
+  0%,
+  100% {
+    background-color: white;
+  }
+  50% {
+    background-color: #fe735b;
+  }
+}
+@keyframes fullDark {
+  0%,
+  100% {
+    background-color: black;
+  }
+  50% {
+    background-color: #fe735b;
+  }
+}

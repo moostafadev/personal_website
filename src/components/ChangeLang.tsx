@@ -28,12 +28,12 @@ const ChangeLang = () => {
       disabled={isPending}
       dir={locale === "en" ? "ltr" : "rtl"}
     >
-      <SelectTrigger className="w-[50px] sm:w-[100px] py-1 px-1 sm:px-2 h-8">
+      <SelectTrigger className="w-[95px] sm:w-[100px] py-1 px-2 h-8">
         <SelectValue placeholder="اللغة" />
       </SelectTrigger>
       <SelectContent>
         <SelectItem value="en">
-          <div className="flex">
+          <div className="flex gap-1">
             <svg
               width="18"
               height="18"
@@ -74,11 +74,11 @@ const ChangeLang = () => {
                 </clipPath>
               </defs>
             </svg>
-            <span className="hidden sm:inline-block">English</span>
+            <span className="inline-block">English</span>
           </div>
         </SelectItem>
         <SelectItem value="ar">
-          <div className="flex">
+          <div className="flex gap-1">
             <svg
               width="18"
               height="18"
@@ -259,7 +259,7 @@ const ChangeLang = () => {
                 </clipPath>
               </defs>
             </svg>
-            <span className="hidden sm:inline-block">العربية</span>
+            <span className="inline-block">العربية</span>
           </div>
         </SelectItem>
       </SelectContent>

@@ -25,6 +25,13 @@
     "about": "I am a Junior Front-End Developer with over 3 months of experience in freelance work. My journey began with a strong foundation in programming basics, object-oriented programming, data structures, and algorithms. Specializing in front-end development using Next.js, I am proficient in design systems and optimization techniques. I am actively seeking a front-end developer role to enhance my skills and gain more hands-on experience. My passion for continuous learning and problem-solving drives me to stay updated with the latest industry trends and best practices."
   },
   "ExperienceSection": {
-    "heading": "Experience"
+    "heading": "Experience",
+    "exp-1": "Start freelancing | 2024",
+    "april": "April",
+    "project-1 title": "Raisa website",
+    "project-1 desc": "Raisa's website project blends aesthetic design with practical functionalities to deliver an exceptional dining experience. The site features an attractive landing page and a content management system that simplifies menu and order management.",
+    "march": "March",
+    "project-2 title": "Help center",
+    "project-2 desc": "The Help Center project serves as the beating heart of support and assistance within the organization, combining technology and empathy to provide comprehensive and effective solutions for all internal support needs."
   }
 }
