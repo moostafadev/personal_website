@@ -17,23 +17,23 @@ const Header = () => {
   const links: { title: string; to: string }[] = [
     {
       title: t("link_1"),
-      to: "/#about",
+      to: `/${locale}/#about`,
     },
     {
       title: t("link_2"),
-      to: "/#experience",
+      to: `/${locale}/#experience`,
     },
     {
       title: t("link_3"),
-      to: "/#skills",
+      to: `/${locale}/#skills`,
     },
     {
       title: t("link_4"),
-      to: "/#projects",
+      to: `/${locale}/#projects`,
     },
     {
       title: t("link_5"),
-      to: "/#contact",
+      to: `/${locale}/#contact`,
     },
   ];
 
