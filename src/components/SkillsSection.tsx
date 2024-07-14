@@ -2,16 +2,20 @@ import React from "react";
 import Heading from "./Heading";
 import { useLocale } from "next-intl";
 import Image from "next/image";
+import SkillItem from "./SkillItem";
 
 const SkillsSection = () => {
   const locale = useLocale();
   return (
-    <section className="min-h-screen py-10 md:py-16" id="skills">
+    <section
+      className="min-h-screen py-10 md:py-16 bg-zinc-50 dark:bg-zinc-900"
+      id="skills"
+    >
       <div className="container flex justify-center">
         <div className="flex flex-col gap-10 w-full">
           <Heading title={locale === "en" ? "Skills" : "المهارات"} />
           <div className="flex gap-4 flex-col md:flex-row">
-            <div className="flex-1 order-2 md:order-1">
+            <div className="flex-1 order-2 md:order-1 self-center">
               <Image
                 src={"/sections_images/4911013_2517913.svg"}
                 alt="Skills Image"
@@ -19,151 +23,92 @@ const SkillsSection = () => {
                 height={1000}
               />
             </div>
-            <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 py-10 md:py-20 justify-items-center order-1 text-zinc-950">
-              <div className="overflow-hidden w-[120px] h-[120px] md:w-[100px] md:h-[100px] rounded-md relative p-2 bg-[#eaf9f8] group cursor-pointer hover:shadow-sm hover:border-[#ff6224] border duration-300">
-                <span className="text-xl font-bold absolute -top-10 left-1/2 -translate-x-1/2 duration-300 ease-in-out group-hover:top-1/2 group-hover:-translate-y-1/2">
-                  HTML
-                </span>
-                <Image
-                  src="/skills/html.png"
-                  alt="html"
-                  width={100}
-                  height={50}
-                  className="duration-300 bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 absolute w-[90%] group-hover:bottom-[-100px]"
-                />
-              </div>
-              <div className="overflow-hidden w-[120px] h-[120px] md:w-[100px] md:h-[100px] rounded-md relative p-2 bg-[#eaf9f8] group cursor-pointer hover:shadow-sm hover:border-[#ff6224] border duration-300">
-                <span className="text-xl font-bold absolute -top-10 left-1/2 -translate-x-1/2 duration-300 ease-in-out group-hover:top-1/2 group-hover:-translate-y-1/2">
-                  CSS
-                </span>
-                <Image
-                  src="/skills/css.png"
-                  alt="html"
-                  width={100}
-                  height={100}
-                  className="duration-300 bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 absolute w-[60%] group-hover:bottom-[-100px]"
-                />
-              </div>
-              <div className="overflow-hidden w-[120px] h-[120px] md:w-[100px] md:h-[100px] rounded-md relative p-2 bg-[#eaf9f8] group cursor-pointer hover:shadow-sm hover:border-[#ff6224] border duration-300">
-                <span className="text-xl font-bold absolute -top-10 left-1/2 -translate-x-1/2 duration-300 ease-in-out group-hover:top-1/2 group-hover:-translate-y-1/2">
-                  JS
-                </span>
-                <Image
-                  src="/skills/js.png"
-                  alt="html"
-                  width={100}
-                  height={100}
-                  className="duration-300 bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 absolute w-[90%] group-hover:bottom-[-100px] rounded-md"
-                />
-              </div>
-              <div className="overflow-hidden w-[120px] h-[120px] md:w-[100px] md:h-[100px] rounded-md relative p-2 bg-[#eaf9f8] group cursor-pointer hover:shadow-sm hover:border-[#ff6224] border duration-300">
-                <span className="text-xl font-bold absolute -top-10 left-1/2 -translate-x-1/2 duration-300 ease-in-out group-hover:top-1/2 group-hover:-translate-y-1/2">
-                  TS
-                </span>
-                <Image
-                  src="/skills/ts.png"
-                  alt="html"
-                  width={100}
-                  height={100}
-                  className="duration-300 bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 absolute w-[90%] rounded-md group-hover:bottom-[-100px]"
-                />
-              </div>
-              <div className="overflow-hidden w-[120px] h-[120px] md:w-[100px] md:h-[100px] rounded-md relative p-2 bg-[#eaf9f8] group cursor-pointer hover:shadow-sm hover:border-[#ff6224] border duration-300">
-                <span className="text-xl font-bold absolute -top-10 left-1/2 -translate-x-1/2 duration-300 ease-in-out group-hover:top-1/2 group-hover:-translate-y-1/2">
-                  ReactJs
-                </span>
-                <Image
-                  src="/skills/react.png"
-                  alt="html"
-                  width={100}
-                  height={100}
-                  className="duration-300 bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 absolute w-[90%] group-hover:bottom-[-100px]"
-                />
-              </div>
-              <div className="overflow-hidden w-[120px] h-[120px] md:w-[100px] md:h-[100px] rounded-md relative p-2 bg-[#eaf9f8] group cursor-pointer hover:shadow-sm hover:border-[#ff6224] border duration-300">
-                <span className="text-xl font-bold absolute -top-10 left-1/2 -translate-x-1/2 duration-300 ease-in-out group-hover:top-1/2 group-hover:-translate-y-1/2">
-                  NextJs
-                </span>
-                <Image
-                  src="/skills/next.svg"
-                  alt="html"
-                  width={100}
-                  height={100}
-                  className="duration-300 bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 absolute w-[90%] h-[90%] group-hover:bottom-[-100px]"
-                />
-              </div>
-              <div className="overflow-hidden w-[120px] h-[120px] md:w-[100px] md:h-[100px] rounded-md relative p-2 bg-[#eaf9f8] group cursor-pointer hover:shadow-sm hover:border-[#ff6224] border duration-300">
-                <span className="text-xl font-bold absolute -top-10 left-1/2 -translate-x-1/2 duration-300 ease-in-out group-hover:top-1/2 group-hover:-translate-y-1/2">
-                  SASS
-                </span>
-                <Image
-                  src="/skills/sass.png"
-                  alt="html"
-                  width={100}
-                  height={100}
-                  className="duration-300 bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 absolute w-[90%] group-hover:bottom-[-100px]"
-                />
-              </div>
-              <div className="overflow-hidden w-[120px] h-[120px] md:w-[100px] md:h-[100px] rounded-md relative p-2 bg-[#eaf9f8] group cursor-pointer hover:shadow-sm hover:border-[#ff6224] border duration-300">
-                <span className="text-xl font-bold absolute -top-10 left-1/2 -translate-x-1/2 duration-300 ease-in-out group-hover:top-1/2 group-hover:-translate-y-1/2">
-                  Tailwind
-                </span>
-                <Image
-                  src="/skills/tailwind.png"
-                  alt="html"
-                  width={100}
-                  height={100}
-                  className="duration-300 bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 absolute w-[90%] h-[90%] rounded-md group-hover:bottom-[-100px]"
-                />
-              </div>
-              <div className="overflow-hidden w-[120px] h-[120px] md:w-[100px] md:h-[100px] rounded-md relative p-2 bg-[#eaf9f8] group cursor-pointer hover:shadow-sm hover:border-[#ff6224] border duration-300">
-                <span className="text-xl font-bold absolute -top-10 left-1/2 -translate-x-1/2 duration-300 ease-in-out group-hover:top-1/2 group-hover:-translate-y-1/2">
-                  Bootstrap
-                </span>
-                <Image
-                  src="/skills/bootstrap.png"
-                  alt="html"
-                  width={100}
-                  height={100}
-                  className="duration-300 bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 absolute w-[90%] group-hover:bottom-[-100px]"
-                />
-              </div>
-              <div className="overflow-hidden w-[120px] h-[120px] md:w-[100px] md:h-[100px] rounded-md relative p-2 bg-[#eaf9f8] group cursor-pointer hover:shadow-sm hover:border-[#ff6224] border duration-300">
-                <span className="text-xl font-bold absolute -top-10 left-1/2 -translate-x-1/2 duration-300 ease-in-out group-hover:top-1/2 group-hover:-translate-y-1/2">
-                  ShadcnUI
-                </span>
-                <Image
-                  src="/skills/shadcn.png"
-                  alt="html"
-                  width={100}
-                  height={100}
-                  className="duration-300 bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 absolute w-[90%] h-[90%] group-hover:bottom-[-100px]"
-                />
-              </div>
-              <div className="overflow-hidden w-[120px] h-[120px] md:w-[100px] md:h-[100px] rounded-md relative p-2 bg-[#eaf9f8] group cursor-pointer hover:shadow-sm hover:border-[#ff6224] border duration-300">
-                <span className="text-xl font-bold absolute -top-10 left-1/2 -translate-x-1/2 duration-300 ease-in-out group-hover:top-1/2 group-hover:-translate-y-1/2">
-                  Chakra
-                </span>
-                <Image
-                  src="/skills/chakra.png"
-                  alt="html"
-                  width={100}
-                  height={100}
-                  className="duration-300 bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 absolute w-[90%] h-[90%] group-hover:bottom-[-100px]"
-                />
-              </div>
-              <div className="overflow-hidden w-[120px] h-[120px] md:w-[100px] md:h-[100px] rounded-md relative p-2 bg-[#eaf9f8] group cursor-pointer hover:shadow-sm hover:border-[#ff6224] border duration-300">
-                <span className="text-xl font-bold absolute -top-10 left-1/2 -translate-x-1/2 duration-300 ease-in-out group-hover:top-1/2 group-hover:-translate-y-1/2">
-                  Git
-                </span>
-                <Image
-                  src="/skills/git.png"
-                  alt="html"
-                  width={100}
-                  height={100}
-                  className="duration-300 bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 absolute w-[90%] h-[90%] group-hover:bottom-[-100px]"
-                />
-              </div>
+            <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 py-10 md:py-20 justify-items-center items-center order-1 text-zinc-950">
+              <SkillItem
+                name="HTML"
+                bgColor="bg-[rgb(242,102,37)]"
+                isDark={true}
+                imageUrl="/skills/html.png"
+                borderColor="hover:border-[rgb(242,102,37)]"
+              />
+              <SkillItem
+                name="CSS"
+                bgColor="bg-[rgb(42,98,241)]"
+                isDark={true}
+                imageUrl="/skills/css.png"
+                imageSize="w-[65%]"
+                borderColor="hover:border-[rgb(42,98,241)]"
+              />
+              <SkillItem
+                name="JS"
+                bgColor="bg-[rgb(240,220,78)]"
+                isDark={true}
+                imageUrl="/skills/js.png"
+                borderColor="hover:border-[rgb(240,220,78)]"
+              />
+              <SkillItem
+                name="TS"
+                bgColor="bg-[rgb(48,120,198)]"
+                isDark={true}
+                imageUrl="/skills/ts.png"
+                borderColor="hover:border-[rgb(48,120,198)]"
+              />
+              <SkillItem
+                name="ReactJs"
+                bgColor="bg-[rgb(96,218,252)]"
+                isDark={true}
+                imageUrl="/skills/react.png"
+                borderColor="hover:border-[rgb(96,218,252)]"
+              />
+              <SkillItem
+                name="NextJs"
+                bgColor="bg-[rgb(0,0,0)]"
+                isDark={false}
+                imageUrl="/skills/next.svg"
+                borderColor="hover:border-[rgb(0,0,0)]"
+              />
+              <SkillItem
+                name="SASS"
+                bgColor="bg-[rgb(204,104,154)]"
+                isDark={true}
+                imageUrl="/skills/sass.png"
+                borderColor="hover:border-[rgb(204,104,154)]"
+              />
+              <SkillItem
+                name="Tailwind"
+                bgColor="bg-[rgb(21,194,183)]"
+                isDark={true}
+                imageUrl="/skills/tailwind.png"
+                borderColor="hover:border-[rgb(21,194,183)]"
+              />
+              <SkillItem
+                name="Bootstrap"
+                bgColor="bg-[rgb(111,17,245)]"
+                isDark={true}
+                imageUrl="/skills/bootstrap.png"
+                borderColor="hover:border-[rgb(111,17,245)]"
+              />
+              <SkillItem
+                name="ShadcnUI"
+                bgColor="bg-[rgb(0,0,0)]"
+                isDark={false}
+                imageUrl="/skills/shadcn.png"
+                borderColor="hover:border-[rgb(0,0,0)]"
+              />
+              <SkillItem
+                name="ChakraUI"
+                bgColor="bg-[rgb(93,202,201)]"
+                isDark={true}
+                imageUrl="/skills/chakra.png"
+                borderColor="hover:border-[rgb(93,202,201)]"
+              />
+              <SkillItem
+                name="Git"
+                bgColor="bg-[rgb(241,81,53)]"
+                isDark={true}
+                imageUrl="/skills/git.png"
+                borderColor="hover:border-[rgb(241,81,53)]"
+              />
             </div>
           </div>
         </div>
