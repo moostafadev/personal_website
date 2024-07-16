@@ -54,6 +54,27 @@ const SkillsSection = () => {
                 borderColor="hover:border-[rgb(48,120,198)]"
               />
               <SkillItem
+                name="SASS"
+                bgColor="bg-[rgb(204,104,154)]"
+                isDark={true}
+                imageUrl="/skills/sass.png"
+                borderColor="hover:border-[rgb(204,104,154)]"
+              />
+              <SkillItem
+                name="Bootstrap"
+                bgColor="bg-[rgb(111,17,245)]"
+                isDark={true}
+                imageUrl="/skills/bootstrap.png"
+                borderColor="hover:border-[rgb(111,17,245)]"
+              />
+              <SkillItem
+                name="Tailwind"
+                bgColor="bg-[rgb(21,194,183)]"
+                isDark={true}
+                imageUrl="/skills/tailwind.png"
+                borderColor="hover:border-[rgb(21,194,183)]"
+              />
+              <SkillItem
                 name="ReactJs"
                 bgColor="bg-[rgb(96,218,252)]"
                 isDark={true}
@@ -68,25 +89,11 @@ const SkillsSection = () => {
                 borderColor="hover:border-[rgb(0,0,0)]"
               />
               <SkillItem
-                name="SASS"
-                bgColor="bg-[rgb(204,104,154)]"
+                name="ChakraUI"
+                bgColor="bg-[rgb(93,202,201)]"
                 isDark={true}
-                imageUrl="/skills/sass.png"
-                borderColor="hover:border-[rgb(204,104,154)]"
-              />
-              <SkillItem
-                name="Tailwind"
-                bgColor="bg-[rgb(21,194,183)]"
-                isDark={true}
-                imageUrl="/skills/tailwind.png"
-                borderColor="hover:border-[rgb(21,194,183)]"
-              />
-              <SkillItem
-                name="Bootstrap"
-                bgColor="bg-[rgb(111,17,245)]"
-                isDark={true}
-                imageUrl="/skills/bootstrap.png"
-                borderColor="hover:border-[rgb(111,17,245)]"
+                imageUrl="/skills/chakra.png"
+                borderColor="hover:border-[rgb(93,202,201)]"
               />
               <SkillItem
                 name="ShadcnUI"
@@ -94,13 +101,6 @@ const SkillsSection = () => {
                 isDark={false}
                 imageUrl="/skills/shadcn.png"
                 borderColor="hover:border-[rgb(0,0,0)]"
-              />
-              <SkillItem
-                name="ChakraUI"
-                bgColor="bg-[rgb(93,202,201)]"
-                isDark={true}
-                imageUrl="/skills/chakra.png"
-                borderColor="hover:border-[rgb(93,202,201)]"
               />
               <SkillItem
                 name="Git"
