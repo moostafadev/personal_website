@@ -3,7 +3,7 @@ export interface IProject {
   title: string;
   desc: string;
   imageURL: string;
-  images: string[];
+  images?: string[];
   status: boolean;
   sourceLink?: string;
   demoLink?: string;
