@@ -21,6 +21,21 @@ interface ILink {
 export function BreadcrumbDemo({ links }: ILink) {
   const locale = useLocale();
 
+  const breadcrumbRenderRender = links?.map((li, idx) => (
+    <>
+      <BreadcrumbSeparator />
+      <BreadcrumbItem>
+        {links.length === idx + 1 ? (
+          <BreadcrumbPage>{li.name}</BreadcrumbPage>
+        ) : (
+          <BreadcrumbLink asChild>
+            <Link href={{ pathname: li.link }}>{li.name}</Link>
+          </BreadcrumbLink>
+        )}
+      </BreadcrumbItem>
+    </>
+  ));
+
   return (
     <Breadcrumb>
       <BreadcrumbList>
@@ -31,20 +46,7 @@ export function BreadcrumbDemo({ links }: ILink) {
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
-        {links?.map((li, idx) => (
-          <>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              {links.length === idx + 1 ? (
-                <BreadcrumbPage>{li.name}</BreadcrumbPage>
-              ) : (
-                <BreadcrumbLink asChild>
-                  <Link href={{ pathname: li.link }}>{li.name}</Link>
-                </BreadcrumbLink>
-              )}
-            </BreadcrumbItem>
-          </>
-        ))}
+        {breadcrumbRenderRender}
       </BreadcrumbList>
     </Breadcrumb>
   );
