@@ -18,7 +18,6 @@ const SkillItem = ({
   imageSize,
   borderColor,
 }: IProps) => {
-  console.log(bgColor);
   return (
     <div
       className={`overflow-hidden w-[120px] h-[120px] md:w-[100px] md:h-[100px] rounded-md ${bgColor} relative p-2 bg-opacity-30 ${
